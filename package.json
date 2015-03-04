@@ -1,0 +1,41 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",  
+  "scripts": {
+    "copy": "node tasks/copy-files.js",
+    "browser": "node tasks/browser.js",
+    "prebuild": "mkdirp build",
+    "build": "node tasks/build.js",
+    "postbuild": "npm run copy",
+    "watch": "onchange client/**/*.js client/**/*.scss index.html -- npm run build",
+    "server": "node server.js",
+    "kick:start": "node tasks/kick-start.js",
+    "prestart": "npm run build",
+    "start": "npm run kick:start",
+    "test": "testem"
+  },
+  "author": "Benjamin Nwaneampeh",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "build-module": "^1.0.1",
+    "chai": "^2.1.0",
+    "cpy": "^2.0.1",
+    "cssify": "^0.6.0",
+    "html2js": "^0.1.1",
+    "mach": "^1.3.2",
+    "mkdirp": "^0.5.0",
+    "mocha": "^2.1.0",
+    "onchange": "^1.0.0",
+    "open": "0.0.5",
+    "sassify": "^0.5.2",
+    "sinon": "^1.12.2"
+  },
+  "dependencies": {
+    "ampersand-app": "^1.0.3",
+    "ampersand-state": "^4.4.5",
+    "ampersand-view": "^7.2.0",
+    "event-stream": "^3.2.2"
+  }
+}
